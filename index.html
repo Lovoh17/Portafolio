@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Desarrollador Full Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+            to { box-shadow: 0 0 30px rgba(99, 102, 241, 0.8); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        .tech-badge {
+            transition: all 0.2s ease;
+        }
+        .tech-badge:hover {
+            transform: scale(1.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold gradient-text">Mi Portafolio</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="hover:text-primary transition-colors">Inicio</a>
+                    <a href="#proyectos" class="hover:text-primary transition-colors">Proyectos</a>
+                    <a href="#habilidades" class="hover:text-primary transition-colors">Habilidades</a>
+                    <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 z-40 transform translate-x-full transition-transform md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="#inicio" class="mobile-link hover:text-primary transition-colors">Inicio</a>
+            <a href="#proyectos" class="mobile-link hover:text-primary transition-colors">Proyectos</a>
+            <a href="#habilidades" class="mobile-link hover:text-primary transition-colors">Habilidades</a>
+            <a href="#contacto" class="mobile-link hover:text-primary transition-colors">Contacto</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center hero-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 text-center px-4">
+            <div class="animate-float mb-8">
+                <div class="w-32 h-32 mx-auto bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center animate-glow">
+                    <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+                Desarrollador <span class="gradient-text">Full Stack</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-slide-up">
+                Especialista en desarrollo web, aplicaciones móviles y sistemas de gestión
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+                <a href="#proyectos" class="bg-primary hover:bg-primary/80 px-8 py-3 rounded-full font-semibold transition-all hover:scale-105">
+                    Ver Proyectos
+                </a>
+                <a href="#contacto" class="border-2 border-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-full font-semibold transition-all hover:scale-105">
+                    Contactar
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Mis Proyectos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades" class="py-20 px-4 bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Tecnologías</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8" id="skills-grid">
+                <!-- Skills will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">Trabajemos Juntos</h2>
+            <p class="text-xl mb-12 max-w-2xl mx-auto">
+                ¿Tienes un proyecto en mente? Me encantaría escuchar sobre tu idea y ayudarte a hacerla realidad.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="mailto:lovoh17@gmail.com" class="bg-primary hover:bg-primary/80 px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    Enviar Email
+                </a>
+                <a href="https://www.linkedin.com/in/rafael-lino-b62a1425b/" target="_blank" class="border-2 border-accent hover:bg-accent hover:text-gray-900 px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 px-4 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Project data
+        const projects = [
+            {
+                title: "Restaurante Al Punto",
+                description: "Sitio web moderno para restaurante con menú interactivo y sistema de reservas online.",
+                tech: ["HTML", "CSS", "JavaScript"],
+                category: "Web",
+                icon: "🍽️",
+                color: "from-orange-500 to-red-500",
+                url: "https://lovoh17.github.io/Al_Punto/",
+                github: "https://github.com/Lovoh17/Al_Punto"
+            },
+            {
+                title: "Azamos Store",
+                description: "Aplicación móvil de tienda en línea con carrito de compras y procesamiento de pagos.",
+                tech: ["Java", "Android Studio", "SQLite"],
+                category: "Móvil",
+                icon: "🛍️",
+                color: "from-green-500 to-blue-500",
+                url: "https://lovoh17.github.io/Documnetacion_PC_AR_APP/",
+                github: "https://github.com/0kev0/PC_AR_Store"
+            },
+            {
+                title: "Drip.css",
+                description: "Librería de estilos CSS moderna con componentes reutilizables y animaciones fluidas.",
+                tech: ["CSS", "SASS", "JavaScript"],
+                category: "Librería",
+                icon: "🎨",
+                color: "from-purple-500 to-pink-500",
+                url: "https://drip-css.com",
+                github: "https://github.com/0kev0/Drip_Css"
+            },
+            {
+                title: "Wine Store",
+                description: "Aplicación web para tienda de vinos con catálogo, filtros avanzados y gestión de inventario.",
+                tech: ["PHP", "Laravel", "MySQL"],
+                category: "E-commerce",
+                icon: "🍷",
+                color: "from-red-500 to-purple-500",
+                url: "",
+                github: "https://github.com/0kev0/VEGA"
+            },
+            {
+                title: "UNIVO Management",
+                description: "Sistema integral de gestión universitaria con módulos de estudiantes, profesores y cursos.",
+                tech: ["Node.js", "Vue.js", "MongoDB"],
+                category: "Sistema",
+                icon: "🎓",
+                color: "from-blue-500 to-cyan-500",
+                url: "https://univo-management.com",
+                github: "https://github.com/usuario/univo-management"
+            },
+            {
+                title: "Parking Manager Mobile",
+                description: "App móvil para gestión de parqueos con reservas en tiempo real y notificaciones push.",
+                tech: ["Java", "Android Studio", "Firebase"],
+                category: "Móvil",
+                icon: "🚗",
+                color: "from-yellow-500 to-orange-500",
+                url: "#",
+                github: "https://github.com/Lovoh17/Parking_UES"
+            },
+            {
+                title: "Parking Admin Web",
+                description: "Panel administrativo web para gestión completa de sistemas de parqueo urbano.",
+                tech: ["Python", "Django", "PostgreSQL"],
+                category: "Administración",
+                icon: "🅿️",
+                color: "from-indigo-500 to-purple-500",
+                url: "https://parking-admin.com",
+                github: "https://github.com/usuario/parking-admin"
+            },
+            {
+                title: "E-Working Platform",
+                description: "Plataforma web para trabajo remoto con videoconferencias, gestión de tareas y colaboración.",
+                tech: ["React", "Node.js", "Socket.io"],
+                category: "Plataforma",
+                icon: "💼",
+                color: "from-teal-500 to-green-500",
+                url: "https://e-working-platform.com",
+                github: "https://github.com/0kev0/E-Working"
+            }
+        ];
+
+        const skills = [
+            { name: "JavaScript", icon: "⚡", level: 95 },
+            { name: "Python", icon: "🐍", level: 90 },
+            { name: "Java", icon: "☕", level: 88 },
+            { name: "PHP", icon: "🐘", level: 85 },
+            { name: "React", icon: "⚛️", level: 92 },
+            { name: "Vue.js", icon: "💚", level: 87 },
+            { name: "Node.js", icon: "🟢", level: 90 },
+            { name: "Laravel", icon: "🔺", level: 83 },
+            { name: "Django", icon: "🎸", level: 80 },
+            { name: "Android", icon: "🤖", level: 85 },
+            { name: "MySQL", icon: "🗄️", level: 88 },
+            { name: "MongoDB", icon: "🍃", level: 82 }
+        ];
+
+        // Generate project cards
+        function generateProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = projects.map(project => `
+                <div class="project-card bg-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="h-48 bg-gradient-to-br ${project.color} flex items-center justify-center">
+                        <span class="text-6xl">${project.icon}</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">${project.title}</h3>
+                            <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">${project.category}</span>
+                        </div>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">${project.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.tech.map(tech => `
+                                <span class="tech-badge text-xs bg-gray-700 px-3 py-1 rounded-full hover:bg-primary/20 cursor-default">${tech}</span>
+                            `).join('')}
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="${project.url}" target="_blank" class="flex-1 bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                                Ver Demo
+                            </a>
+                            <a href="${project.github}" target="_blank" class="flex-1 border-2 border-gray-600 hover:border-accent hover:bg-accent/10 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Generate skills
+        function generateSkills() {
+            const grid = document.getElementById('skills-grid');
+            grid.innerHTML = skills.map(skill => `
+                <div class="text-center group cursor-pointer">
+                    <div class="bg-gray-700 rounded-2xl p-6 mb-4 group-hover:bg-primary/20 transition-all group-hover:scale-105">
+                        <div class="text-4xl mb-3">${skill.icon}</div>
+                        <div class="text-sm font-semibold">${skill.name}</div>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-1000" 
+                             style="width: ${skill.level}%"></div>
+                    </div>
+                    <div class="text-xs text-gray-400 mt-1">${skill.level}%</div>
+                </div>
+            `).join('');
+        }
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            generateProjects();
+            generateSkills();
+            
+            // Observe project cards for animation
+            setTimeout(() => {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    observer.observe(card);
+                });
+            }, 100);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('#inicio');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
